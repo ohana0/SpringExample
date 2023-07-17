@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
+	<table border="1">
 		<tr>
 			<td>id</td>
 			<td>${result.id}</td>
