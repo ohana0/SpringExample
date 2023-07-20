@@ -14,4 +14,7 @@ public interface NewUserRepository {
 
 	public int insertUser(@Param("name")String name, @Param("birthday")String birthday, @Param("email")String email, @Param("introduce")String introduce);
 
+	
+	public int selectCountEmail(@Param("email") String email);
+
 }

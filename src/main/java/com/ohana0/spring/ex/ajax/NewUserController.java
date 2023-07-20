@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -58,7 +57,21 @@ public class NewUserController {
 	public String userInput() {
 		return "ajax/user/add_user";
 	}
-	
+	@ResponseBody
+	@GetMapping("/emaiil_confirm")
+	public Map<String,Boolean> isDuplicateEmail(@RequestParam("email") String email) {
+		//중복됨: {"isDuplicate":true}
+		//중복되지않음: {"isDuplicate":false}
+		Map<String,Boolean> resultMap = new HashMap<>();
+		if(newUserService.isDuplicateEmail(email)) {
+			resultMap.put("isDuplicate", true);
+		}
+		else {
+			resultMap.put("isDuplicate", false);
+		}
+		return resultMap;
+		
+	}
 	
 	
 }
