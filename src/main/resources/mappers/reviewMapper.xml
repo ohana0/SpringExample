@@ -51,7 +51,7 @@
 		VALUE
 		(
 			#{storeId}
-			,#{menu}w
+			,#{menu}
 			,#{userName}
 			,#{point}
 			,#{review}
